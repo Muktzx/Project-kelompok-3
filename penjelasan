@@ -4,12 +4,15 @@
 #include <iomanip>
 Empat header file ini digunakan dalam kode.
 iostream digunakan untuk operasi input/output, 
-vector digunakan untuk menyimpan koleksi data, string untuk mengelola string, dan iomanip untuk manipulasi input/output format.
+vector digunakan untuk menyimpan koleksi data, 
+string untuk mengelola string, 
+dan iomanip untuk manipulasi input/output format.
 
 
 
 using namespace std;
-Ini memungkinkan penggunaan elemen dari std namespace tanpa perlu menuliskan std:: sebelum setiap elemen.
+Ini memungkinkan penggunaan elemen dari std 
+namespace tanpa perlu menuliskan std:: sebelum setiap elemen.
 
 
 
@@ -21,7 +24,10 @@ public:
 
     Item(string n, double p, int s) : name(n), price(p), stock(s) {}
 };
-Kelas Item mendefinisikan item yang dijual di toko dengan tiga atribut: name (nama), price (harga), dan stock (stok). 
+Kelas Item mendefinisikan item yang dijual di toko dengan tiga atribut:
+name (nama), 
+price (harga), 
+dan stock (stok). 
 Konstruktornya menerima tiga parameter untuk menginisialisasi atribut-atribut ini.
 
 
@@ -31,9 +37,11 @@ private:
     vector<Item> inventory;
     vector<Item> cart;
     double totalPrice;
-    Kelas Store mendefinisikan toko dengan tiga atribut: inventory (daftar item yang ada di toko), cart (keranjang belanjaan), 
-    dan totalPrice (total harga dari item-item di keranjang belanjaan).
-inventory dan cart adalah vektor dari objek Item, yang berarti mereka menyimpan daftar item.
+    Kelas Store mendefinisikan toko dengan tiga atribut: inventory (daftar item yang ada di toko), 
+cart (keranjang belanjaan), 
+dan totalPrice (total harga dari item-item di keranjang belanjaan).
+inventory dan cart adalah vektor dari objek Item, 
+yang berarti mereka menyimpan daftar item.
 totalPrice adalah variabel double yang menyimpan total harga item di keranjang belanjaan.
 
 
