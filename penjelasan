@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <iomanip>
+Empat header file ini digunakan dalam kode.
+iostream digunakan untuk operasi input/output, 
+vector digunakan untuk menyimpan koleksi data, string untuk mengelola string, dan iomanip untuk manipulasi input/output format.
+
+
+
+using namespace std;
+Ini memungkinkan penggunaan elemen dari std namespace tanpa perlu menuliskan std:: sebelum setiap elemen.
+
+
+
+class Item {
+public:
+    string name;
+    double price;
+    int stock;
+
+    Item(string n, double p, int s) : name(n), price(p), stock(s) {}
+};
+Kelas Item mendefinisikan item yang dijual di toko dengan tiga atribut: name (nama), price (harga), dan stock (stok). 
+Konstruktornya menerima tiga parameter untuk menginisialisasi atribut-atribut ini.
+
+
+
+class Store () 
+private:
+    vector<Item> inventory;
+    vector<Item> cart;
+    double totalPrice;
+    Kelas Store mendefinisikan toko dengan tiga atribut: inventory (daftar item yang ada di toko), cart (keranjang belanjaan), 
+    dan totalPrice (total harga dari item-item di keranjang belanjaan).
+inventory dan cart adalah vektor dari objek Item, yang berarti mereka menyimpan daftar item.
+totalPrice adalah variabel double yang menyimpan total harga item di keranjang belanjaan.
+
+
+public:
+    Store() : totalPrice(0) {}
+    Konstruktor Store menginisialisasi totalPrice menjadi 0 saat objek Store dibuat.
+
+
+    void addItemToInventory() {
+    string name;
+    double price;
+    int stock;
+    cout << "Enter item name: ";
+    cin >> name;
+    cout << "Enter item price: ";
+    cin >> price;
+    cout << "Enter item stock: ";
+    cin >> stock;
+    inventory.push_back(Item(name, price, stock));
+    cout << "Item added to inventory.\n";
+}
+Metode addItemToInventory memungkinkan pengguna untuk menambahkan item baru ke inventaris toko.
+Metode ini meminta pengguna untuk memasukkan nama item, harga, dan jumlah stok, 
+kemudian menambahkan item tersebut ke vektor inventory.
+
+
+void listInventory() {
+    cout << "Inventory:\n";
+    for (size_t i = 0; i < inventory.size(); ++i) {
+        cout << i + 1 << ". " << inventory[i].name << " - " << inventory[i].price << " - " << inventory[i].stock << " in stock\n";
+    }
+}
+Metode listInventory mencetak daftar item yang ada di inventaris toko ke konsol.
+Metode ini mengiterasi melalui vektor inventory dan mencetak nama, harga, dan stok setiap item.
+
+
+
+
+Secara keseluruhan, kode ini mendefinisikan dua kelas: Item dan Store.
+Kelas Item menyimpan informasi tentang item, sedangkan kelas Store menyimpan inventaris item dan menyediakan
+metode untuk menambahkan item ke inventaris dan mencetak inventaris.
