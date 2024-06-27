@@ -1,0 +1,6 @@
+Buatlah aplikasi penjualan sederhana untuk sebuah toko. 
+Program harus dapat mencatat transaksi penjualan barang,
+menghitung total harga, 
+menerima pembayaran, 
+dan mengeluarkan struk pembelian. 
+Program juga harus memiliki fitur untuk menambahkan barang baru ke dalam daftar inventaris.
