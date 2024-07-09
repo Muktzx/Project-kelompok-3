@@ -1,0 +1,40 @@
+terimaPembayaran:
+Fungsi terimaPembayaran() memungkinkan pengguna untuk melihat total harga transaksi terakhir, 
+memasukkan jumlah pembayaran, dan menerima konfirmasi pembayaran. 
+Fungsi ini juga menghitung dan menampilkan kembalian jika ada. 
+
+Langkah-langkahnya adalah sebagai berikut:
+Program memeriksa apakah ada transaksi yang tercatat. Jika tidak ada, program menampilkan pesan bahwa belum ada transaksi yang dicatat.
+Program meminta pengguna untuk memasukkan jumlah pembayaran.
+Jika pembayaran mencukupi, program menghitung dan menampilkan kembalian serta pesan bahwa pembayaran berhasil.
+Jika pembayaran tidak mencukupi, program menampilkan pesan bahwa pembayaran tidak mencukupi.
+
+Fungsi terimaPembayaran() memungkinkan pengguna untuk melakukan pembayaran atas transaksi penjualan terakhir. Berikut penjelasan rinci maksud dan cara kerja kodenya:
+
+1. Memeriksa Riwayat Transaksi:
+if (riwayatTransaksi.empty()) {: Memeriksa apakah vector riwayatTransaksi kosong.
+riwayatTransaksi.empty(): Mengembalikan nilai true jika vector riwayatTransaksi tidak memiliki elemen.
+Jika true:
+cout << "Belum ada transaksi yang dicatat." << endl;: Menampilkan pesan "Belum ada transaksi yang dicatat." kepada pengguna.
+return;: Mengakhiri fungsi terimaPembayaran().
+Jika false:
+Transaksi terakhir dalam riwayatTransaksi diakses untuk diproses.
+
+2. Mendapatkan Referensi Transaksi Terakhir:
+Transaksi& transaksiTerakhir = riwayatTransaksi.back();:
+Transaksi& transaksiTerakhir: Mendeklarasikan variabel referensi transaksiTerakhir dengan tipe Transaksi.
+riwayatTransaksi.back(): Mendapatkan referensi ke elemen terakhir dalam vector riwayatTransaksi. Elemen terakhir merupakan transaksi penjualan terbaru yang belum dibayar.
+
+3. Menampilkan Total Harga dan Meminta Pembayaran:
+cout << "Total harga: " << transaksiTerakhir.totalHarga << endl;: Menampilkan pesan "Total harga: " diikuti dengan nilai totalHarga dari transaksi terakhir.
+cout << "Masukkan jumlah pembayaran: ";: Menampilkan pesan "Masukkan jumlah pembayaran: " kepada pengguna.
+cin >> pembayaran;: Membaca input jumlah pembayaran dari keyboard dan menyimpannya dalam variabel pembayaran.
+
+4. Memproses Pembayaran:
+if (pembayaran >= transaksiTerakhir.totalHarga) {: Memeriksa apakah jumlah pembayaran (pembayaran) lebih besar dari atau sama dengan total harga (transaksiTerakhir.totalHarga).
+Jika true:
+double kembalian = pembayaran - transaksiTerakhir.totalHarga;: Menghitung kembalian dengan mengurangi total harga dengan jumlah pembayaran.
+cout << "Kembalian: " << kembalian << endl;: Menampilkan pesan "Kembalian: " diikuti dengan nilai kembalian.
+cout << "Pembayaran berhasil." << endl;: Menampilkan pesan "Pembayaran berhasil."
+Jika false:
+cout << "Pembayaran tidak mencukupi." << endl;: Menampilkan pesan "Pembayaran tidak mencukupi."
