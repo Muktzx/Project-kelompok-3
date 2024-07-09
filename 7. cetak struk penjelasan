@@ -1,0 +1,46 @@
+cetakStruk:
+
+Fungsi ini mencetak struk untuk transaksi terakhir yang dicatat. Langkah-langkahnya adalah sebagai berikut:
+
+Program memeriksa apakah ada transaksi yang tercatat. Jika tidak ada, program menampilkan pesan bahwa belum ada transaksi yang dicatat.
+Program menampilkan struk dengan format tabel yang berisi nama barang, jumlah barang, dan harga barang.
+Program menampilkan total harga dari transaksi tersebut.
+
+Fungsi cetakStruk() berfungsi untuk mencetak struk pembelian untuk transaksi terakhir yang telah dilakukan. 
+Berikut penjelasan rinci maksud dan cara kerja kodenya:
+
+1. Memeriksa Riwayat Transaksi:
+if (riwayatTransaksi.empty()) {: Memeriksa apakah vector riwayatTransaksi kosong.
+riwayatTransaksi.empty(): Mengembalikan nilai true jika vector riwayatTransaksi tidak memiliki elemen.
+Jika true:
+cout << "Belum ada transaksi yang dicatat." << endl;: Menampilkan pesan "Belum ada transaksi yang dicatat." kepada pengguna.
+return;: Mengakhiri fungsi cetakStruk().
+Jika false:
+Transaksi terakhir dalam riwayatTransaksi diakses untuk dicetak struknya.
+
+2. Mendapatkan Referensi Transaksi Terakhir:
+const Transaksi& transaksiTerakhir = riwayatTransaksi.back();:
+const Transaksi& transaksiTerakhir: Mendeklarasikan variabel referensi transaksiTerakhir dengan tipe Transaksi dan modifier const. Modifier const menandakan bahwa variabel ini tidak dapat diubah.
+riwayatTransaksi.back(): Mendapatkan referensi ke elemen terakhir dalam vector riwayatTransaksi. Elemen terakhir merupakan transaksi penjualan terbaru yang belum dicetak struknya.
+
+3. Mencetak Judul Struk:
+cout << "=== STRUK PEMBELIAN ===" << endl;: Menampilkan judul "=== STRUK PEMBELIAN ===" di tengah layar.
+
+4. Mencetak Header Tabel:
+cout << left << setw(20) << "Nama Barang" << setw(10) << "Jumlah" << setw(10) << "Harga" << endl;: Menampilkan header tabel dengan judul kolom "Nama Barang",
+"Jumlah", dan "Harga" yang dijustifikasi ke kiri dengan lebar masing-masing 20, 10, dan 10 karakter.
+
+5. Mencetak Detail Barang yang Dibeli:
+for (size_t i = 0; i < transaksiTerakhir.barangDibeli.size(); ++i) {: Melakukan iterasi melalui setiap elemen dalam vector barangDibeli dalam transaksi terakhir.
+size_t i: Menyatakan variabel iterator i dengan tipe size_t untuk menampung indeks elemen dalam vector.
+transaksiTerakhir.barangDibeli.size(): Mendapatkan jumlah elemen dalam vector barangDibeli.
+++i: Menambahkan nilai i dengan 1 setelah setiap iterasi.
+cout << left << setw(20) << transaksiTerakhir.barangDibeli[i].nama << setw(10) << transaksiTerakhir.jumlah[i] << setw(10)
+<< transaksiTerakhir.barangDibeli[i].harga << endl;: Menampilkan detail barang yang dibeli, 
+termasuk nama barang, jumlah, dan harga, dalam format tabel dengan lebar yang sama seperti header tabel.
+
+6. Mencetak Total Harga:
+cout << "Total Harga: " << transaksiTerakhir.totalHarga << endl;: Menampilkan total harga transaksi di bawah tabel detail barang.
+
+7. Mencetak Footer Struk:
+cout << "=======================" << endl;: Menampilkan garis footer "=======================" di tengah layar.
