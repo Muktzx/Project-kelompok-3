@@ -196,6 +196,29 @@ void muatData() {
     fileTransaksi.close();
 }
 
+void restokBarang() {
+    string kode;
+    int jumlah;
+    cout << "Masukkan kode barang yang ingin direstok: ";
+    cin >> kode;
+    cout << "Masukkan jumlah stok yang ingin ditambahkan: ";
+    cin >> jumlah;
+
+    bool ditemukan = false;
+    for (auto& barang : inventaris) {
+        if (barang.kode == kode) {
+            barang.stok += jumlah;
+            cout << "Stok barang " << barang.nama << " berhasil ditambahkan. Stok sekarang: " << barang.stok << endl;
+            ditemukan = true;
+            break;
+        }
+    }
+
+    if (!ditemukan) {
+        cout << "Barang dengan kode " << kode << " tidak ditemukan." << endl;
+    }
+}
+
 int main() {
     muatData();
 
@@ -208,7 +231,8 @@ int main() {
         cout << "4. Catat Transaksi" << endl;
         cout << "5. Terima Pembayaran" << endl;
         cout << "6. Cetak Struk" << endl;
-        cout << "7. Keluar" << endl;
+        cout << "7. Restok Barang" << endl;
+        cout << "8. Keluar" << endl;
         cout << "Pilih menu: ";
         cin >> pilihan;
 
@@ -232,13 +256,16 @@ int main() {
                 cetakStruk();
                 break;
             case 7:
+                restokBarang();
+                break;
+            case 8:
                 simpanData();
                 cout << "Terima kasih telah menggunakan aplikasi ini." << endl;
                 break;
             default:
                 cout << "Pilihan tidak valid." << endl;
         }
-    } while (pilihan != 7);
+    } while (pilihan != 8);
 
     return 0;
 }
