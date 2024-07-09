@@ -1,0 +1,63 @@
+simpanData
+Fungsi ini menyimpan data inventaris dan riwayat transaksi ke file. Berikut adalah cara kerjanya:
+
+Membuka file inventaris.txt untuk menulis data inventaris. Untuk setiap barang dalam inventaris, 
+menulis kode, nama, harga, dan stok barang ke dalam file.
+Menutup file inventaris.txt.
+Membuka file transaksi.txt untuk menulis data transaksi. Untuk setiap transaksi dalam riwayatTransaksi, 
+menulis kode barang, jumlah, dan harga dari setiap barang yang dibeli, serta total harga transaksi.
+Menutup file transaksi.txt.
+
+
+1. Menyimpan Data Inventaris:
+ofstream fileInventaris("inventaris.txt");:
+ofstream fileInventaris: Mendeklarasikan objek ofstream bernama fileInventaris.
+"inventaris.txt": Menentukan nama file teks yang akan digunakan untuk menyimpan data inventaris, yaitu "inventaris.txt".
+fileInventaris: Menyatakan bahwa objek fileInventaris akan digunakan untuk menulis ke file teks "inventaris.txt".
+for (const auto& barang : inventaris) {: Melakukan iterasi melalui setiap elemen dalam daftar inventaris inventaris.
+
+const auto& barang: Menyatakan bahwa variabel barang adalah referensi konstan ke elemen saat ini dalam daftar inventaris.
+inventaris: Nama daftar inventaris yang berisi objek-objek Barang.
+
+fileInventaris << barang.kode << " " << barang.nama << " " << barang.harga << " " << barang.stok << endl;: 
+Menulis informasi barang ke file teks "inventaris.txt".
+
+barang.kode: Menulis kode barang ke file teks.
+" ": Menulis spasi sebagai pemisah antar data.
+barang.nama: Menulis nama barang ke file teks.
+" ": Menulis spasi sebagai pemisah antar data.
+barang.harga: Menulis harga barang ke file teks.
+" ": Menulis spasi sebagai pemisah antar data.
+barang.stok: Menulis stok barang ke file teks.
+
+endl: Menambahkan baris baru di file teks untuk memisahkan data setiap barang.
+fileInventaris.close();: Menutup file teks "inventaris.txt" setelah selesai menulis data.
+
+2. Menyimpan Data Riwayat Transaksi:
+ofstream fileTransaksi("transaksi.txt");:
+ofstream fileTransaksi: Mendeklarasikan objek ofstream bernama fileTransaksi.
+"transaksi.txt": Menentukan nama file teks yang akan digunakan untuk menyimpan data riwayat transaksi, yaitu "transaksi.txt".
+fileTransaksi: Menyatakan bahwa objek fileTransaksi akan digunakan untuk menulis ke file teks "transaksi.txt".
+for (const auto& transaksi : riwayatTransaksi) {: Melakukan iterasi melalui setiap elemen dalam vector riwayatTransaksi.
+const auto& transaksi: Menyatakan bahwa variabel transaksi adalah referensi konstan ke elemen saat ini dalam vector riwayatTransaksi.
+riwayatTransaksi: Nama vector yang berisi objek-objek Transaksi.
+
+for (size_t i = 0; i < transaksi.barangDibeli.size(); ++i) {: Melakukan iterasi melalui setiap elemen dalam vector barangDibeli dalam transaksi saat ini.
+size_t i: Menyatakan variabel iterator i dengan tipe size_t untuk menampung indeks elemen dalam vector.
+transaksi.barangDibeli.size(): Mendapatkan jumlah elemen dalam vector barangDibeli.
+++i: Menambahkan nilai i dengan 1 setelah setiap iterasi.
+
+fileTransaksi << transaksi.barangDibeli[i].kode << " " << transaksi.jumlah[i] << " " << transaksi.barangDibeli[i].harga << endl;:
+Menulis informasi barang yang dibeli ke file teks "transaksi.txt".
+
+transaksi.barangDibeli[i].kode: Menulis kode barang yang dibeli ke file teks.
+" ": Menulis spasi sebagai pemisah antar data.
+transaksi.jumlah[i]: Menulis jumlah barang yang dibeli ke file teks.
+" ": Menulis spasi sebagai pemisah antar data.
+
+transaksi.barangDibeli[i].harga: Menulis harga barang yang dibeli ke file teks.
+endl: Menambahkan baris baru di file teks untuk memisahkan data setiap barang yang dibeli dalam transaksi.
+
+fileTransaksi << "Total " << transaksi.totalHarga << endl;: Menulis total harga transaksi ke file teks "transaksi.txt".
+"Total ": Menulis label "Total " ke file teks.
+transaksi.totalHarga: Menulis total harga transaksi ke file
