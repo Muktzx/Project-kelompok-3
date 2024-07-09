@@ -1,0 +1,46 @@
+Fungsi restokBarang() bertujuan untuk menambahkan jumlah stok suatu barang yang sudah ada dalam inventaris berdasarkan kode barang yang diberikan oleh pengguna.
+
+Cara Kerja
+Deklarasi Variabel:
+string kode;
+int jumlah;
+kode: Variabel untuk menyimpan kode barang yang akan direstok.
+jumlah: Variabel untuk menyimpan jumlah stok yang ingin ditambahkan ke barang tersebut.
+Menerima Input dari Pengguna:
+
+
+cout << "Masukkan kode barang yang ingin direstok: ";
+cin >> kode;
+cout << "Masukkan jumlah stok yang ingin ditambahkan: ";
+cin >> jumlah;
+Pengguna diminta untuk memasukkan kode barang dan jumlah stok yang ingin ditambahkan.
+Inisialisasi Flag:
+
+
+bool ditemukan = false;
+ditemukan: Sebuah flag untuk menandakan apakah barang dengan kode yang diberikan ditemukan dalam inventaris atau tidak.
+Loop Melalui Inventaris:
+
+
+for (auto& barang : inventaris) {
+    if (barang.kode == kode) {
+        barang.stok += jumlah;
+        cout << "Stok barang " << barang.nama << " berhasil ditambahkan. Stok sekarang: " << barang.stok << endl;
+        ditemukan = true;
+        break;
+    }
+}
+Iterasi: Loop ini akan iterasi melalui setiap elemen dalam inventaris.
+Pengecekan Kode Barang: Jika kode barang yang diinput pengguna cocok dengan kode barang yang ada dalam inventaris, maka stok barang tersebut akan ditambahkan.
+barang.stok += jumlah;: Menambahkan jumlah stok baru ke stok barang yang sudah ada.
+cout: Menampilkan pesan bahwa stok barang berhasil ditambahkan dan menunjukkan stok yang baru.
+ditemukan = true;: Mengubah flag ditemukan menjadi true untuk menandakan bahwa barang ditemukan.
+break;: Menghentikan loop karena barang sudah ditemukan dan stok sudah ditambahkan.
+Pengecekan Flag dan Pesan Kesalahan:
+
+
+if (!ditemukan) {
+    cout << "Barang dengan kode " << kode << " tidak ditemukan." << endl;
+}
+Setelah loop selesai, jika ditemukan masih false, berarti tidak ada barang dengan kode yang diberikan dalam inventaris.
+Menampilkan pesan kesalahan yang menyatakan bahwa barang dengan kode tersebut tidak ditemukan.
