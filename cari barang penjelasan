@@ -1,8 +1,0 @@
-cariBarang:
-
-Fungsi ini memungkinkan pengguna untuk mencari barang berdasarkan kode barang. Langkah-langkahnya adalah sebagai berikut:
-
-Program meminta pengguna untuk memasukkan kode barang yang dicari.
-Program mencari barang tersebut dalam vector inventaris.
-Jika ditemukan, program menampilkan informasi barang tersebut.
-Jika tidak ditemukan, program menampilkan pesan bahwa barang tidak ditemukan.
