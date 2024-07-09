@@ -1,0 +1,41 @@
+tambahBarang:
+
+Fungsi ini digunakan untuk menambahkan barang baru ke dalam inventaris. Langkah-langkahnya adalah sebagai berikut:
+
+Program meminta pengguna untuk memasukkan kode barang, nama barang, harga barang, dan jumlah stok barang.
+Data yang dimasukkan pengguna disimpan dalam sebuah objek Barang.
+Objek Barang tersebut ditambahkan ke dalam vector inventaris.
+Pesan konfirmasi ditampilkan bahwa barang berhasil ditambahkan.
+
+penjelasan kode nya
+
+Fungsi cariBarang() berfungsi untuk mencari barang dalam daftar inventaris berdasarkan kode barang yang dimasukkan oleh pengguna
+
+cout << "Masukkan kode barang yang dicari: ";: Menampilkan pesan "Masukkan kode barang yang dicari: " kepada pengguna.
+cin >> kode;: Membaca input kode barang dari pengguna dan menyimpannya dalam variabel kode.
+
+for (const auto& barang : inventaris):  Melakukan iterasi melalui setiap elemen dalam daftar inventaris inventaris. Setiap elemen dalam daftar diasumsikan sebagai objek Barang dengan properti kode, nama, harga, dan stok.
+if (barang.kode == kode):  Memeriksa apakah kode barang elemen saat ini 
+(barang.kode) sama dengan kode barang yang dicari (kode).
+Jika sama:
+
+cout << left << setw(10) << "Kode" << setw(20) << "Nama" << setw(10) << "Harga" << setw(10) << "Stok" << endl;:
+Menampilkan header tabel dengan judul kolom "Kode", "Nama", "Harga", dan "Stok".
+
+cout << left << setw(10) << barang.kode << setw(20) << barang.nama << setw(10) << barang.harga << setw(10) << barang.stok << endl;: 
+Menampilkan informasi barang (kode, nama, harga, dan stok) dalam format tabel.
+
+ditemukan = true;: Mengubah variabel ditemukan menjadi true untuk menunjukkan bahwa barang telah ditemukan.
+
+break;: Keluar dari loop for karena barang yang dicari telah ditemukan.
+
+Jika tidak sama:
+Iterasi loop for berlanjut ke elemen berikutnya dalam daftar inventaris
+
+if (!ditemukan): Memeriksa apakah variabel ditemukan masih false.
+Jika false:
+cout << "Barang dengan kode " << kode << " tidak ditemukan." << endl;: Menampilkan pesan "Barang dengan kode "
+diikuti dengan kode barang yang dicari " tidak ditemukan."
+
+Fungsi cariBarang() memungkinkan pengguna untuk mencari barang dalam daftar inventaris berdasarkan kode barang. 
+Fungsi ini menampilkan informasi barang yang ditemukan dalam format tabel yang rapi dan memberikan pesan jika barang tidak ditemukan.
