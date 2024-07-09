@@ -1,0 +1,77 @@
+Fungsi muatData() dalam kode yang Anda berikan bertanggung jawab untuk membaca data inventaris dan riwayat transaksi 
+dari file teks dan memuatnya ke dalam program. 
+Berikut penjelasan lengkapnya:
+
+1. Memuat Data Inventaris:
+Membuka File Inventaris:
+ifstream fileInventaris("inventaris.txt");: Baris kode ini mendeklarasikan objek ifstream bernama fileInventaris dan menginisialisasinya untuk membaca dari file teks bernama "inventaris.txt".
+Objek ifstream digunakan untuk membaca data dari file teks.
+Parameter "inventaris.txt" menentukan nama file teks yang akan dibaca.
+
+Membaca Data Barang:
+Barang barang;: Baris kode ini mendeklarasikan variabel objek Barang bernama barang untuk menampung data barang yang dibaca dari file teks.
+Objek Barang mewakili data satu item barang dalam inventaris.
+
+while (fileInventaris >> barang.kode >> barang.nama >> barang.harga >> barang.stok) {: Loop while ini akan terus berulang selama file teks "inventaris.txt" masih memiliki data yang dapat dibaca.
+fileInventaris >> barang.kode >> barang.nama >> barang.harga >> barang.stok: Baris kode ini membaca data kode barang, nama barang, harga barang, dan stok barang dari file teks dan menyimpannya ke dalam properti barang.kode, barang.nama, barang.harga, dan barang.stok dari objek barang.
+Jika file teks tidak memiliki data lagi, loop akan berhenti.
+
+inventaris.push_back(barang);: Baris kode ini menambahkan objek barang yang telah dibaca ke dalam daftar inventaris.
+Daftar inventaris berisi semua objek Barang yang dibaca dari file teks, mewakili inventaris lengkap toko.
+
+
+Menutup File Inventaris:
+fileInventaris.close();: Baris kode ini menutup file teks "inventaris.txt" setelah selesai membaca data.
+Penting untuk menutup file setelah selesai digunakan untuk membebaskan sumber daya sistem dan memastikan integritas data.
+
+2. Memuat Data Riwayat Transaksi:
+Membuka File Transaksi:
+ifstream fileTransaksi("transaksi.txt");: Baris kode ini mendeklarasikan objek ifstream bernama fileTransaksi dan menginisialisasinya untuk membaca dari file teks bernama "transaksi.txt".
+Objek ifstream digunakan untuk membaca data dari file teks.
+Parameter "transaksi.txt" menentukan nama file teks yang akan dibaca.
+
+Membaca Data Transaksi:
+Transaksi transaksi;: Baris kode ini mendeklarasikan variabel objek Transaksi bernama transaksi untuk menampung data transaksi yang dibaca dari file teks.
+
+Objek Transaksi mewakili data satu transaksi penjualan.
+string kode;: Baris kode ini mendeklarasikan variabel string bernama kode untuk menampung kode barang yang dibaca dari file teks.
+
+Kode barang digunakan untuk mengidentifikasi barang yang dibeli dalam transaksi.
+int jumlah;: Baris kode ini mendeklarasikan variabel integer bernama jumlah untuk menampung jumlah barang yang dibaca dari file teks.
+
+Jumlah barang menunjukkan berapa banyak unit barang yang dibeli dalam transaksi.
+double harga;: Baris kode ini mendeklarasikan variabel double bernama harga untuk menampung harga barang yang dibaca dari file teks.
+
+Harga barang menunjukkan harga per unit barang yang dibeli dalam transaksi.
+while (fileTransaksi >> kode >> jumlah >> harga) {: Loop while ini akan terus berulang selama file teks "transaksi.txt" masih memiliki data yang dapat dibaca.
+
+fileTransaksi >> kode >> jumlah >> harga: Baris kode ini membaca data kode barang, jumlah barang, dan harga barang dari file teks dan menyimpannya ke dalam variabel kode, jumlah, dan harga.
+Jika file teks tidak memiliki data lagi, loop akan berhenti.
+
+Memproses Data Transaksi:
+if (kode == "Total") {: Blok kode ini dijalankan jika kode yang dibaca sama dengan "Total".
+transaksi.totalHarga = jumlah;: Baris kode ini mengatur nilai totalHarga dalam objek transaksi dengan nilai jumlah yang dibaca.
+
+Barang barang;: Baris kode ini mendeklarasikan objek Barang bernama barang untuk menampung data barang yang dibeli.
+for (const auto& b : inventaris) {: Baris kode ini memulai loop for untuk iterasi melalui setiap elemen dalam daftar inventaris.
+
+const auto& b: Merupakan referensi konstan ke elemen saat ini dalam daftar inventaris.
+inventaris: Nama daftar yang berisi objek-objek Barang (inventaris toko).
+if (b.kode == kode) {: Blok kode ini mengecek apakah kode barang elemen saat ini (b.kode) sama dengan kode yang dibaca dari file (kode).
+Jika true:
+barang = b;: Baris kode ini menetapkan elemen saat ini (b) ke objek barang, memastikan barang yang dibeli sesuai dengan data inventaris.
+break;: Keluar dari loop for karena barang yang dibeli sudah ditemukan.
+Jika false:
+Loop for dilanjutkan ke elemen berikutnya dalam daftar inventaris.
+
+transaksi.barangDibeli.push_back(barang);: Baris kode ini menambahkan objek barang yang ditemukan ke dalam vektor barangDibeli di dalam objek transaksi.
+Vektor barangDibeli menyimpan barang-barang yang dibeli dalam transaksi.
+transaksi.jumlah.push_back(jumlah);: Baris kode ini menambahkan nilai jumlah yang dibaca dari file ke dalam vektor jumlah di dalam objek transaksi.
+Vektor jumlah menyimpan jumlah dari masing-masing barang yang dibeli dalam transaksi.
+
+transaksi.totalHarga += harga * jumlah;: Baris kode ini menghitung harga total barang transaksi dengan menambahkan harga per unit (harga) dikalikan dengan kuantitas (jumlah).
+Ini memperbarui properti totalHarga dari objek transaksi.
+
+ Menutup File Transaksi
+fileTransaksi.close();: Baris kode ini menutup file "transaksi.txt" setelah selesai membaca data.
+Ini penting untuk membebaskan sumber daya sistem dan memastikan integritas data.
