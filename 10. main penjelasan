@@ -1,0 +1,43 @@
+Fungsi main adalah titik masuk dari program ini. Berikut adalah cara kerjanya:
+
+Fungsi main() adalah titik masuk untuk keseluruhan aplikasi penjualan. 
+Ini menampilkan antarmuka berbasis menu yang memungkinkan pengguna melakukan berbagai operasi terkait pengelolaan inventaris,
+pencatatan penjualan, dan penanganan pembayaran. 
+Fungsi ini menggunakan loop do-while untuk terus menampilkan menu dan memproses pilihan pengguna 
+hingga pengguna memilih opsi 7 untuk keluar dari program.
+
+Rincian Kode:
+
+int main() {
+Baris ini menandai awal dari fungsi main(), yang merupakan titik masuk utama program.
+Tipe pemulangan int menunjukkan bahwa fungsi mengembalikan nilai integer, yang biasanya digunakan untuk memberi sinyal status keluar program.
+
+Pemuatan Data:
+
+muatData();
+Baris ini memanggil fungsi muatData(). Fungsi ini bertanggung jawab untuk memuat data inventaris dan riwayat transaksi dari file masing-masing.
+Ini memastikan program memiliki akses ke data yang diperlukan sebelum menampilkan menu kepada pengguna.
+
+
+Deklarasi int pilihan; membuat variabel integer pilihan untuk menyimpan pilihan menu pengguna.
+Loop do-while berulang kali menampilkan menu, meminta input pengguna, dan menjalankan tindakan yang sesuai berdasarkan pilihan pengguna.
+Pernyataan switch mengevaluasi nilai pilihan dan memanggil fungsi yang sesuai berdasarkan opsi yang dipilih.
+Setiap blok case di dalam switch sesuai dengan opsi menu dan memanggil fungsi masing-masing untuk melakukan tindakan yang diinginkan.
+Kasus default menangani input pengguna yang tidak valid dan menampilkan pesan kesalahan.
+Kondisi loop pilihan != 7 memastikan menu terus ditampilkan hingga pengguna memilih opsi 7 untuk keluar.
+
+
+tambahBarang();: Memanggil fungsi tambahBarang() untuk menambah item baru ke inventaris.
+tampilkanInventaris();: Memanggil fungsi tampilkanInventaris() untuk menampilkan daftar inventaris saat ini.
+cariBarang();: Memanggil fungsi cariBarang() untuk mencari item tertentu dalam inventaris.
+catatTransaksi();: Memanggil fungsi catatTransaksi() untuk mencatat transaksi penjualan baru.
+terimaPembayaran();: Memanggil fungsi terimaPembayaran() untuk memproses pembayaran transaksi.
+cetakStruk();: Memanggil fungsi cetakStruk() untuk menghasilkan struk (kwitansi) untuk transaksi.
+simpanData();: Memanggil fungsi simpanData() untuk menyimpan perubahan apa pun yang dilakukan pada data inventaris dan transaksi.
+
+simpanData();
+Baris ini memanggil fungsi simpanData() sebelum keluar program.
+Ini memastikan pembaruan apa pun yang dilakukan pada data inventaris dan transaksi disimpan ke file masing-masing.
+
+return 0;
+Baris ini mengembalikan nilai integer 0, yang umumnya menandakan program telah selesai dengan sukses.
