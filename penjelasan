@@ -15,3 +15,28 @@ Pengguna diminta untuk memasukkan jumlah pembayaran, dan program akan menghitung
 
 cetakStruk: Fungsi ini mencetak struk untuk transaksi terakhir yang dicatat. 
 Struk berisi daftar barang yang dibeli beserta jumlah dan harganya.
+
+kode awal
+
+<iostream>: Untuk input dan output data standar (seperti cin dan cout).
+<vector>: Untuk menggunakan struktur data vector (array yang dapat diubah ukurannya).
+<string>: Untuk manipulasi string (teks).
+<iomanip>: Untuk memformat output teks.
+<fstream>: Untuk operasi file (seperti membaca dan menulis file).
+
+struct Barang: Mendefinisikan struktur data Barang untuk menyimpan informasi tentang barang, terdiri dari:
+kode: String untuk kode barang.
+nama: String untuk nama barang.
+harga: Double untuk harga barang.
+stok: Integer untuk stok barang.
+struct Transaksi: Mendefinisikan struktur data Transaksi untuk menyimpan informasi tentang transaksi penjualan, terdiri dari:
+barangDibeli: Vector Barang untuk menyimpan daftar barang yang dibeli dalam transaksi.
+jumlah: Vector int untuk menyimpan jumlah masing-masing barang yang dibeli.
+totalHarga: Double untuk menyimpan total harga transaksi.
+3. Deklarasi Variabel Global:
+
+inventaris: Vector Barang untuk menampung daftar barang dalam inventaris.
+riwayatTransaksi: Vector Transaksi untuk menampung riwayat transaksi penjualan.
+
+Kode ini mendefinisikan struktur data untuk barang dan transaksi penjualan,
+serta mendeklarasikan variabel global untuk menyimpan inventaris barang dan riwayat transaksi
