@@ -60,4 +60,8 @@ endl: Menambahkan baris baru di file teks untuk memisahkan data setiap barang ya
 
 fileTransaksi << "Total " << transaksi.totalHarga << endl;: Menulis total harga transaksi ke file teks "transaksi.txt".
 "Total ": Menulis label "Total " ke file teks.
+
 transaksi.totalHarga: Menulis total harga transaksi ke file
+
+Baris kode fileTransaksi.close(); merupakan bagian terakhir dari fungsi muatData() yang sebelumnya kita bahas.
+Baris ini bertanggung jawab untuk menutup aliran file (fileTransaksi) setelah fungsi selesai membaca data dari file "transaksi.txt".
