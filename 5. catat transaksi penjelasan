@@ -1,0 +1,67 @@
+catatTransaksi:
+
+Fungsi ini mencatat transaksi pembelian barang. Langkah-langkahnya adalah sebagai berikut:
+
+Program menciptakan objek Transaksi baru untuk mencatat transaksi yang sedang berlangsung.
+Program meminta pengguna untuk memasukkan kode barang dan jumlah barang yang ingin dibeli.
+Program mencari barang tersebut di dalam inventaris. Jika stok mencukupi, barang ditambahkan ke dalam daftar barang yang dibeli dan stok barang dikurangi. Jika stok tidak mencukupi, program menampilkan pesan bahwa stok tidak mencukupi.
+Program terus meminta pengguna untuk menambahkan barang hingga pengguna memutuskan untuk berhenti (memasukkan 'n' untuk pertanyaan lanjut).
+Transaksi yang dicatat ditambahkan ke dalam vector riwayatTransaksi.
+
+penjelasan kode nya
+
+1. Inisialisasi Transaksi Baru:
+Transaksi transaksiBaru;: Mendeklarasikan variabel transaksiBaru dengan tipe Transaksi. 
+Variabel ini akan menampung informasi tentang transaksi yang sedang dilakukan.
+
+2. Loop untuk Menambahkan Barang ke Transaksi:
+char lanjut;: Mendeklarasikan variabel karakter lanjut untuk menampung jawaban pengguna tentang apakah ingin menambahkan barang lagi.
+do {: Memulai loop do-while.
+string kode;: Mendeklarasikan variabel string kode untuk menyimpan kode barang yang dimasukkan oleh pengguna.
+int jumlah;: Mendeklarasikan variabel integer jumlah untuk menyimpan jumlah barang yang ingin dibeli.
+cout << "Masukkan kode barang: ";: Menampilkan pesan "Masukkan kode barang: " kepada pengguna.
+cin >> kode;: Membaca input kode barang dari pengguna dan menyimpannya dalam variabel kode.
+cout << "Masukkan jumlah: ";: Menampilkan pesan "Masukkan jumlah: " kepada pengguna.
+cin >> jumlah;: Membaca input jumlah barang dari pengguna dan menyimpannya dalam variabel jumlah.
+
+3. Mencari Barang dan Memproses Transaksi:
+ bool ditemukan = false;`: Menginisialisasi variabel boolean `ditemukan` dengan nilai `false`. 
+  Variabel ini menandakan apakah barang dengan kode yang dicari telah ditemukan.
+
+ for (auto& barang : inventaris)`: Melakukan iterasi melalui setiap elemen dalam daftar inventaris `inventaris`. Setiap elemen diasumsikan sebagai objek `Barang` dengan properti `kode`, `nama`, `harga`, dan `stok`.
+    * `auto& barang`: Menyatakan bahwa variabel `barang` adalah referensi ke elemen saat ini dalam daftar inventaris.
+
+    * `inventaris`: Nama daftar inventaris yang berisi objek-objek `Barang`.
+if (barang.kode == kode)`: Memeriksa apakah kode barang elemen saat ini (`barang.kode`) sama dengan kode barang yang dicari (`kode`).
+  
+* Jika sama:
+        * `if (barang.stok >= jumlah)`: Memeriksa apakah stok barang mencukupi untuk jumlah yang ingin dibeli.
+            * Jika stok mencukupi:
+                * `transaksiBaru.barangDibeli.push_back(barang);`: Menambahkan objek `barang` ke dalam vector `barangDibeli` dalam transaksi baru.
+                * `transaksiBaru.jumlah.push_back(jumlah);`: Menambahkan nilai `jumlah` ke dalam vector `jumlah` dalam transaksi baru.
+                * `barang.stok -= jumlah;`: Mengurangi stok barang dengan jumlah yang dibeli.
+                * `transaksiBaru.totalHarga += barang.harga * jumlah;`: Menghitung total harga transaksi dengan menambahkan harga barang dikalikan jumlah yang dibeli.
+                * `ditemukan = true;`: Mengubah variabel `ditemukan` menjadi `true` untuk menunjukkan bahwa barang telah ditemukan dan dibeli.
+           
+* Jika stok tidak mencukupi:
+                * `cout << "Stok tidak mencukupi." << endl;`: Menampilkan pesan "Stok tidak mencukupi."
+        * `break;`: Keluar dari loop `for` karena barang yang dicari telah ditemukan dan diproses.
+    * Jika tidak sama:
+        * Iterasi loop `for` berlanjut ke elemen berikutnya dalam daftar inventaris.
+
+4. Menampilkan Pesan Jika Barang Tidak Ditemukan:
+if (!ditemukan): Memeriksa apakah variabel ditemukan masih false.
+Jika false:
+cout << "Barang dengan kode " << kode << " tidak ditemukan." << endl;: M
+enampilkan pesan "Barang dengan kode " diikuti dengan kode barang yang dicari " tidak ditemukan."
+
+5. Menanyakan Pengguna untuk Menambahkan Barang Lagi:
+cout << "Tambah barang lagi? (y/n): ";: Menampilkan pesan "Tambah barang lagi? (y/n): " kepada pengguna.
+cin >> lanjut;: Membaca input jawaban pengguna dari keyboard dan menyimpannya dalam variabel lanjut.
+
+6. Keluar dari Loop dan Menyimpan Transaksi:
+} while (lanjut == 'y');: Melakukan loop do-while selama pengguna memasukkan karakter 'y'.
+riwayatTransaksi.push_back(transaksiBaru);: Menambahkan transaksi baru yang telah selesai ke dalam vector riwayatTransaksi.
+
+cout << "Transaksi berhasil dicatat." << endl;: Menampilkan pesan "Transaksi berhasil dicatat." kepada pengguna. 
+Pesan ini memberikan konfirmasi bahwa transaksi telah diproses dan disimpan dengan sukses.
