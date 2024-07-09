@@ -4,15 +4,6 @@ Fungsi ini menampilkan semua barang yang ada dalam inventaris dengan format tabe
 
 Program mencetak header tabel (kolom Kode, Nama, Harga, Stok).
 Program kemudian mencetak data setiap barang yang ada di dalam vector inventaris dengan format yang rapi menggunakan manipulasi setw dan left.
-cpp
-Copy code
-void tampilkanInventaris() {
-    cout << left << setw(10) << "Kode" << setw(20) << "Nama" << setw(10) << "Harga" << setw(10) << "Stok" << endl;
-    for (const auto& barang : inventaris) {
-        cout << left << setw(10) << barang.kode << setw(20) << barang.nama << setw(10) << barang.harga << setw(10) << barang.stok << endl;
-    }
-}
-
 
 Penjelasan Kode tampilkanInventaris()
 Fungsi tampilkanInventaris() berfungsi untuk menampilkan daftar barang dalam inventaris ke layar. 
