@@ -1,0 +1,57 @@
+tampilkanInventaris:
+
+Fungsi ini menampilkan semua barang yang ada dalam inventaris dengan format tabel. Langkah-langkahnya adalah sebagai berikut:
+
+Program mencetak header tabel (kolom Kode, Nama, Harga, Stok).
+Program kemudian mencetak data setiap barang yang ada di dalam vector inventaris dengan format yang rapi menggunakan manipulasi setw dan left.
+cpp
+Copy code
+void tampilkanInventaris() {
+    cout << left << setw(10) << "Kode" << setw(20) << "Nama" << setw(10) << "Harga" << setw(10) << "Stok" << endl;
+    for (const auto& barang : inventaris) {
+        cout << left << setw(10) << barang.kode << setw(20) << barang.nama << setw(10) << barang.harga << setw(10) << barang.stok << endl;
+    }
+}
+
+
+Penjelasan Kode tampilkanInventaris()
+Fungsi tampilkanInventaris() berfungsi untuk menampilkan daftar barang dalam inventaris ke layar. 
+Berikut penjelasan rinci maksud dan cara kerja kodenya:
+
+cout << left << setw(10) << "Kode" << setw(20) << "Nama" << setw(10) << "Harga" << setw(10) << "Stok" << endl;:
+cout: Mencetak teks ke layar.
+left: Mengatur agar teks dicetak rata kiri.
+setw(10): Mengatur lebar kolom menjadi 10 karakter.
+"Kode": Mencetak teks "Kode" sebagai judul kolom.
+setw(20): Mengatur lebar kolom nama menjadi 20 karakter.
+"Nama": Mencetak teks "Nama" sebagai judul kolom.
+setw(10): Mengatur lebar kolom harga menjadi 10 karakter.
+"Harga": Mencetak teks "Harga" sebagai judul kolom.
+setw(10): Mengatur lebar kolom stok menjadi 10 karakter.
+"Stok": Mencetak teks "Stok" sebagai judul kolom.
+endl: Menambahkan baris baru di akhir teks.
+2. Menampilkan Informasi Barang:
+
+for (const auto& barang : inventaris): Melakukan iterasi melalui setiap elemen dalam daftar inventaris inventaris. 
+Setiap elemen diasumsikan sebagai objek Barang dengan properti kode, nama, harga, dan stok.
+
+const auto& barang: Menyatakan bahwa variabel barang adalah referensi konstan ke elemen saat ini dalam daftar inventaris.
+inventaris: Nama daftar inventaris yang berisi objek-objek Barang.
+
+cout << left << setw(10) << barang.kode << setw(20) << barang.nama << setw(10) << barang.harga << setw(10) << barang.stok << endl;:
+cout: Mencetak teks ke layar.
+
+left: Mengatur agar teks dicetak rata kiri.
+setw(10): Mengatur lebar kolom menjadi 10 karakter.
+barang.kode: Mencetak nilai properti kode dari objek barang (kode barang).
+setw(20): Mengatur lebar kolom nama menjadi 20 karakter.
+barang.nama: Mencetak nilai properti nama dari objek barang (nama barang).
+setw(10): Mengatur lebar kolom harga menjadi 10 karakter.
+barang.harga: Mencetak nilai properti harga dari objek barang (harga barang).
+setw(10): Mengatur lebar kolom stok menjadi 10 karakter.
+barang.stok: Mencetak nilai properti stok dari objek barang (stok barang).
+endl: Menambahkan baris baru di akhir teks.
+Kesimpulan:
+
+Fungsi tampilkanInventaris() memformat dan menampilkan informasi tentang setiap barang dalam inventaris ke layar 
+dalam tabel yang rapi dengan judul kolom dan lebar kolom yang terdefinisi.
